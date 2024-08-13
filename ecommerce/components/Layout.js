@@ -6,10 +6,17 @@ import {
   Text,
   Stack,
   Button,
-  useColorModeValue
+  useColorModeValue,
+  useColorMode
 } from '@chakra-ui/react'
+import {MoonIcon, SunIcon} from '@chakra-ui/icons'
 
 const Layout = ({children}) => {
+
+  // useColorMode es un hook de chakra ui, proporciona a la aplicación la funcionalidad
+  // de cambiar entre modo claro y oscuro
+  const {colorMode, toggleColorMode} = useColorMode()
+
   return (
     <div>
    <Head><title> E-commerce App </title></Head>
@@ -39,6 +46,8 @@ const Layout = ({children}) => {
          direction={'row'}
          spacing={6}
         >
+        <Button onClick={toggleColorMode}>{colorMode === 'light' ?  <MoonIcon/> : <SunIcon/>}
+      </Button>
           <Button
             fontSize={'sm'}
             fontWeight={400}
