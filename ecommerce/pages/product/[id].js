@@ -24,23 +24,26 @@ const ProductPage = () => {
 
   return (
     <Container maxW={'container.xl'} mt={2}>
-        <SimpleGrid columns={[1,2]} spacing={2}>
+       <SimpleGrid columns={[1, 2]} spacing={4} alignItems={'center'} justifyContent={'center'}>
             <Flex>
-                <Image 
-                src={`/images/${product.image}`}
+                <Image src=
+                {
+                `/images/${product.image}`}
+                rounded={'30px'}
                 fit={'cover'}
-                alt={product.title}
+                alt={product.description}
                 align={'center'}
                 h={'100%'}
-                w={{base: '100%', sm:'400px', lg:'500px'}}
-                rounded={'md'}
+                w={{base:'100%', sm: '400px', lg: '500px'}
+                 }
                 />
             </Flex>
-            <Stack spacing={{base: 6, md:10}}>
+            <Stack spacing={{base: 6, md:'1'}}>
                 <Box>
                     <Heading
+                    lineHeight={1.3}
                     fontWeight={600}
-                    fontSize={{base: '2xl', sm: '4xl', lg: '4xl'}}
+                    fontSize={{base: '2xl', sm:'4xl', lg:'4xl'}}
                     >
                         {product.title}
                     </Heading>
@@ -53,17 +56,20 @@ const ProductPage = () => {
                     </Text>
                 </Box>
                 <Text
-                 color={useColorModeValue('gray.500', 'gray.700')}
+                 color={useColorModeValue('gray.500', 'gray.400')}
                  fontSize={'lg'}
+                 mb={'10'}
                 >
                 {product.description}
                 </Text>
-                <Flex alignItems={'end'}>
+                <Flex flexGrow={1} alignItems={'end'}>
                     <Button
-                    rounded={'md'} w={'full'} mt={8} size={'lg'} py={'7'}
-                    bg={useColorModeValue('gray.900', 'gray.50')}
-                    color={useColorModeValue('white', 'gray.900')}
-                    textTransform={'uppercase'}
+                     rounded={'md'} w={'full'} size={'lg'} py={'3'}
+                     bg={useColorModeValue('gray.900', 'gray.50')}
+                     color={useColorModeValue('white', 'gray.900')}
+                     textTransform={'uppercase'}
+                     _hover={{ bg: 'green.400' }}
+                    _focus={{ boxShadow: 'outline' }}
                     >
                         Add to cart
                     </Button>
