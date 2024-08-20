@@ -21,7 +21,7 @@ import { useReducer, createContext } from 'react'
   }
 
   // creamos el contexto 
-   const CartConext = createContext() // crear el contexto
+   const CartContext = createContext() // crear el contexto
 
    // creamos el proveedor del contexto podemos usar 
    // el componente Context.Provider 
@@ -38,17 +38,14 @@ import { useReducer, createContext } from 'react'
      }
 
      return (
-        <CartConext.Provider
+        <CartContext.Provider
         // value paso los datos que quiero compartir con otros componentes
-         value={
-            {state, addToCart, removeFromCart}
-         }
-        >
+         value={{...state, addToCart, removeFromCart}}>
          {/* componentes hijos */}
          {children}
-        </CartConext.Provider>
+        </CartContext.Provider>
      )
 
    }
 
-   export { CartConext, CartProvider}
+   export { CartContext, CartProvider}
