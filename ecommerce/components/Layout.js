@@ -39,7 +39,13 @@ const Layout = ({children}) => {
       <Flex flex={{base:1}} justify={{base:'center', md: 'start'}}> 
         <Text 
         fontFamily={'heading'} 
-        color={useColorModeValue('gray.800', 'white')}>Logo
+        color={useColorModeValue('gray.800', 'white')}>
+          <Link 
+          href='/'
+          fontFamily={'heading'} 
+          color={useColorModeValue('gray.800', 'white')}>
+            E-commerce App
+          </Link>
         </Text>
       </Flex> 
         <Stack
@@ -51,7 +57,7 @@ const Layout = ({children}) => {
         <Button onClick={toggleColorMode}>
           {colorMode === 'light' ?  <MoonIcon/> : <SunIcon/>}
         </Button>
-        <Link href='/cart' >
+        <Link href='/cart' passHref >
         <CartIcon />
         </Link>
           <Button
