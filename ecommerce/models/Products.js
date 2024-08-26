@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-import moongose from 'mongoose'
 
 const productSchema = new mongoose.Schema (
     {
