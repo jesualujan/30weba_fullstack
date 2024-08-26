@@ -1,15 +1,16 @@
 import mongoose from 'mongoose'
+import moongose from 'mongoose'
 
-const productSchema = new mongoose.Schema(
+const productSchema = new mongoose.Schema (
     {
-        id: {type: String, require: true, unique: true},
-        title: {type: String, require: true},
-        image: {type: String, require: true},
-        price: {type: Number, require: true},
-        description: {type: String, require: true},
-    },
-    {timestamps: true} // sirve para saber cuando un producto (dato) fue creado
+        id: {type: String, required: true, unique: true },
+        title: {type: String, required: true},
+        image: {type: String, required: true},
+        price: {type: Number, required: true},
+        description: {type: String, required: true},
+       },
+       { timestamps: true } // sirve para saber cuando un producto (dato) fue creado
 )
 
-const Product = mongoose.model.Product || mongoose.model('Product', productSchema)
+const Product = mongoose.models.Product || mongoose.model('Product', productSchema)
 export default Product
