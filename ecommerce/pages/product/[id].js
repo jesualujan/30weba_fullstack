@@ -11,14 +11,15 @@ import {data} from '../../utils/data'
 import { 
     Container, SimpleGrid, Flex, Image, Heading, Stack, Box, Text, 
     useColorModeValue, Button } from '@chakra-ui/react'
+import db from '../../utils/db'
+import Product from '../../models/Products'
 
-const ProductPage = () => {
+const ProductPage = (props) => {
     const router = useRouter() // es un hook de next 
-    const {id} = router.query
+    const {id}= router.query
+    const {product} = props
 
-    const product = data.products.find((product) => product.id === parseInt(id))
-
-    if(!product) {
+    if (!product) {
         return <div> 404 | Product not Found </div>
     }
 
@@ -79,5 +80,19 @@ const ProductPage = () => {
     </Container>
   )
 }
+  // server-side-proxy
+  export async function getServerSideProps(context){
+    const {params} = context
+    const {id} = params
+    await db.connect()
+    const product = await Product.findOne({id}).lean()
+    await db.disconnect()
+    
+    return {
+      props: {
+        product: db.convertDocToObj(product)
+      }
+    }
+  }
 
 export default ProductPage
