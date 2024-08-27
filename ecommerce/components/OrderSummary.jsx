@@ -7,7 +7,7 @@ import {
     useColorModeValue
 } from '@chakra-ui/react'
 
-const OrderSummary = () => {
+const OrderSummary = ({total}) => {
   return (
     <Stack spacing={'9'} borderWidth="1px" rounded="lg" padding="8" width="full">
     <Heading size="md">Order Summary</Heading>
