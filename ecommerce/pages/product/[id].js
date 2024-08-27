@@ -5,19 +5,20 @@
 // 1.- Identificación única:
 // El uso de un identificador único como lo es el id en el nombre del archivo ayuda a garantizar
 // que no haya conflictos con otros archivos en el mismo directorio o proyecto.
-import React from 'react'
+import React, {useContext} from 'react'
 import {useRouter} from 'next/router'
-import {data} from '../../utils/data'
 import { 
     Container, SimpleGrid, Flex, Image, Heading, Stack, Box, Text, 
     useColorModeValue, Button } from '@chakra-ui/react'
 import db from '../../utils/db'
 import Product from '../../models/Products'
+import {CartContext} from '../../context/Cart'
 
 const ProductPage = (props) => {
     const router = useRouter() // es un hook de next 
     const {id}= router.query
     const {product} = props
+    const {addToCart} = useContext(CartContext)
 
     if (!product) {
         return <div> 404 | Product not Found </div>
@@ -71,6 +72,7 @@ const ProductPage = (props) => {
                      textTransform={'uppercase'}
                      _hover={{ bg: 'green.400' }}
                     _focus={{ boxShadow: 'outline' }}
+                    onClick={() => addToCart(product)}
                     >
                         Add to cart
                     </Button>
