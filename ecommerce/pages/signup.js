@@ -37,7 +37,7 @@ const SignUpPage = () => {
         e.preventDefault()
         // validate form 
      try {
-        loginSchema.validate({
+        signUpSchema.validate({
             name,
             email,
             password
