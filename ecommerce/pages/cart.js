@@ -12,7 +12,7 @@ import OrderSummary from '../components/OrderSummary'
 
 const CartPage = () => {
     const { cart } = useContext(CartContext)
-    const calculateTotal = (cartItems) => {
+    const calculateTotal = () => {
         // esta es la función de reducción, que se ejecuta en cada momento del arreglo
         // acc -> es el acumulador que almacena el resultado parcial,
         // item -> es el elemento actual en el recorrido del arreglo 
@@ -31,7 +31,7 @@ const CartPage = () => {
             {
                cart?.length === 0 ?
                (
-                <Text fontSize='xl' fontWeight='bold'> Your Cart is empty </Text>
+                <Text fontSize='2xl' fontWeight='bold'> Your Cart is empty </Text>
                ) :
                (
                 <>
