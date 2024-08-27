@@ -57,7 +57,7 @@ const Layout = ({children}) => {
         <Button onClick={toggleColorMode}>
           {colorMode === 'light' ?  <MoonIcon/> : <SunIcon/>}
         </Button>
-        <Link href='/cart' passHref >
+        <Link href='/cart' >
         <CartIcon />
         </Link>
           <Button
