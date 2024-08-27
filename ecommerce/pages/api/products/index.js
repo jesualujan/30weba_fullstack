@@ -9,7 +9,7 @@ router
     //? MONGOOSE FUNCTIONS 
     await db.connect()
    const products =  await Product.find({})
-  //  console.log(products)
+   console.log(products)
     await db.disconnect(products)
     res.send(products)
     // res.send()
