@@ -5,9 +5,9 @@ import { useColorMode, IconButton, Box, Text } from '@chakra-ui/react'
 const CartIcon = () => {
     const { cart } = useContext(CartContext) // consumimos el contexto
     const { colorMode } = useColorMode()
-    const hoverColor = {light: "gray.800", dark: "gray.200"}
-    const iconColor =  {light: "gray.600", dark: "gray.300"}
-    const fontColor = {light: "gray.800", dark: "gray.100"}
+    const hoverColor =  {light: "gray.800", dark: "gray.200"} 
+    const iconColor =  {light: "gray.600", dark: "gray.300"} 
+    const fontColor =  {light: "gray.800", dark: "gray.100"} 
 
   return (
     <Box position='relative'>
